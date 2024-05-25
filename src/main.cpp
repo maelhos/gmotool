@@ -11,6 +11,7 @@ void mpz_set_str_ext(mpz_ptr n, const char* str){
     else 
         mpz_init_set_str(n, str, 10);
 }
+
 int main(int argc, char* argv[]){
     std::string N, E, C;
 
@@ -29,6 +30,7 @@ int main(int argc, char* argv[]){
 
     // factor N
     factorization fac = factor(n);
+    print_fac(fac);
 
     // compute stuff and print flag
     mpz_t phi, d, m;
@@ -40,7 +42,7 @@ int main(int argc, char* argv[]){
         exit(1);
     }
     mpz_powm(m, c, d, n);
-    printf("%s\n", mpz_get_str(0, 10, m));
+    printf("[+] m = %s\n", mpz_get_str(0, 10, m));
     std::cout << "[!] Flag : " << long_to_bytes(m) << std::endl;
 
     return 0;

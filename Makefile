@@ -10,7 +10,7 @@ CPP_INCLUDE_PATH := include
 OUT_NAME := gmotool
 
 LIBS := -lm -lgmp -lgmpxx -lmpfr -fopenmp
-OPTS := -march=znver3 -g -O3
+OPTS := -std=c++20 -march=znver3 -g -O3
 
 $(cpp_object_files): build/%.o : src/%.cpp
 	@mkdir -p $(dir $@) && \
